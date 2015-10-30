@@ -1,0 +1,14 @@
+Development Manual
+=======
+
+Source control client used is GitHub.
+
+[link] https://github.com/Hugbunadarfraedihopurinn/TicTacToe
+
+Source control is accessed through its clone url.
+
+[link] https://github.com/Hugbunadarfraedihopurinn/TicTacToe.git
+
+Build Environments used are Gradle and Travis.
+
+Other Dependencies: Programming language used is java 1.8

@@ -1,0 +1,8 @@
+Administration Manual
+=======
+
+How To Install on machine:
+-----------
+
+How To Deploy, Run and Maintain on client:
+-----------
