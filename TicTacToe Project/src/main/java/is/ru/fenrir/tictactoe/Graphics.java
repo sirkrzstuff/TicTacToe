@@ -1,5 +1,6 @@
 package main.java.is.ru.fenrir.tictactoe;
 
+import java.awt.GridLayout;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -9,12 +10,14 @@ public class Graphics {
 	private static void createAndShowGUI() {
 		JFrame frame = new JFrame("TicTacToe");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JLabel emptyLabel = new JLabel("");
-		emptyLabel.setPreferredSize(new Dimension(475, 380));
-		frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
+		frame.setLayout(new GridLayout(3, 3));
+		for(int i = 0; i < 9; i++)
+		{
+			frame.add(new JButton("Button" + i));
+		}
 		
 		frame.pack();
+		frame.setSize(300, 300);
 		frame.setVisible(true);
 	}
 	
