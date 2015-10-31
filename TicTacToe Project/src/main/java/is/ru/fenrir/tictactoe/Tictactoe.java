@@ -6,7 +6,7 @@ public class Tictactoe {
 	
 	private static boolean playing = true;
 	private static int currentPlayer = 1;
-	private static boolean gameWon = true ;
+	private static boolean gameWon = false;
 	private static boolean tie = false;
 	
 	public static void main(String[] args) {
