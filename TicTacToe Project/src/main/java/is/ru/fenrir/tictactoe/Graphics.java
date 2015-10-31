@@ -19,6 +19,7 @@ public class Graphics {
 		frame.pack();
 		frame.setSize(300, 300);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 	
 	public static void main(String[] args) {
