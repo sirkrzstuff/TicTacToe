@@ -11,7 +11,7 @@ public class Tictactoetest {
 
 	@Before
 	public void setUp() throws Exception {
-		Tictactoe tictactoe = new Tictactoe();
+		
 	}
 
 	@Test
@@ -25,13 +25,14 @@ public class Tictactoetest {
 		Tictactoe tictactoe = new Tictactoe();
 		int before = tictactoe.getPlayer();
 		tictactoe.changePlayer();
-		int after = Tictactoe.getPlayer();
+		int after = tictactoe.getPlayer();
 		assertNotEquals(before, after);
 	}
 
 	@Test
 	public void testGetPlayer() {
-		assertNotNull(Tictactoe.getPlayer());
+		Tictactoe tictactoe = new Tictactoe();
+		assertNotNull(tictactoe.getPlayer());
 	}
 
 }

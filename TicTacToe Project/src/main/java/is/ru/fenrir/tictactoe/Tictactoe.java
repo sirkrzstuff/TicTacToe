@@ -1,11 +1,9 @@
 package main.java.is.ru.fenrir.tictactoe;
 
-import javax.swing.JFrame;
-
 public class Tictactoe {
 	
 	private static boolean playing = true;
-	private static int currentPlayer = 1;
+	private char currentPlayer = 'X';
 	private static boolean gameWon = false;
 	private static boolean tie = false;
 	private static char winner = ' ';
@@ -81,13 +79,13 @@ public class Tictactoe {
 	}
 
 	public void changePlayer() {
-		if (this.currentPlayer == 1)
-			this.currentPlayer = 2;
+		if (this.currentPlayer == 'X')
+			this.currentPlayer = 'O';
 		else
-			this.currentPlayer = 1;
+			this.currentPlayer = 'X';
 	}
 
-	public static int getPlayer() {
-		return currentPlayer; 
+	public char getPlayer() {
+		return this.currentPlayer; 
 	}
 }
