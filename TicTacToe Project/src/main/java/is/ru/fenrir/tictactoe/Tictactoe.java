@@ -10,31 +10,24 @@ public class Tictactoe {
 	private static boolean tie = false;
 	private static char winner = ' ';
 	
-	//public Tictactoe() {
-	//	Graphics graphics = new Graphics();
-	//}
-	
 	public static void main(String[] args) {
-		//JFrame graphics = new Graphics();
-		//Tictactoe game = new Tictactoe();
 		
 		Graphics graphics = new Graphics();
-		
-		graphics.getButtonValue(1);
 		
 		while(playing)
 		{
 			checkGameStatus(graphics);
 			
 			
-			//checkGameOver();
 			if(gameWon)
 			{
 				playing = false;
+				graphics.changeStatus(winner + " has won!");
 			}
 			if(tie)
 			{
 				playing = false;
+				graphics.changeStatus("It's a tie");
 			}
 		}
 	}
