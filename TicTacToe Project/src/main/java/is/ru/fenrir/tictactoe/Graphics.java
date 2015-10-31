@@ -5,28 +5,25 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Graphics {
+public class Graphics extends JFrame {
 	
-	private static void createAndShowGUI() {
-		JFrame frame = new JFrame("TicTacToe");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new GridLayout(3, 3));
+	public Graphics() {
+		
+		JButton[] buttons = new JButton[9];
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(3, 3));
+		
 		for(int i = 0; i < 9; i++)
 		{
-			frame.add(new JButton("Button" + i));
+			buttons[i] = new JButton(" ");
+			buttons[i].setFont(new Font("Arial", Font.BOLD, 80));
+			panel.add(buttons[i]);
 		}
 		
-		frame.pack();
-		frame.setSize(300, 300);
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-	}
-	
-	public static void main(String[] args) {
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				createAndShowGUI();
-			}
-		});
+		
+		JLabel status = new JLabel("Status");
+		add(panel, BorderLayout.CENTER);
+		add(status, BorderLayout.SOUTH);
+		
 	}
 }
