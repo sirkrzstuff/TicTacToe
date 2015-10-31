@@ -38,7 +38,9 @@ public class Graphics extends JFrame {
 	}
 	
 	public char getButtonValue(int buttonId) {
-		// TODO: check for empty string
+
+		if (buttons[buttonId].getText() == "")
+			return Integer.toString(buttonId).toCharArray()[0];
 		return buttons[buttonId].getText().toCharArray()[0];
 	}
 }
