@@ -7,12 +7,14 @@ import javax.swing.*;
 
 public class Graphics extends JFrame {
 	
+	private JButton[] buttons = new JButton[9];
+	
 	/**
 	 * Default constructor that sets up the tictactoe board.
 	 */
 	public Graphics() {
 		
-		JButton[] buttons = new JButton[9];
+		//JButton[] buttons = new JButton[9];
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(3, 3));
 		
@@ -33,5 +35,10 @@ public class Graphics extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setTitle("TicTacToe");
+	}
+	
+	public char getButtonValue(int buttonId) {
+		// TODO: check for empty string
+		return buttons[buttonId].getText().toCharArray()[0];
 	}
 }
