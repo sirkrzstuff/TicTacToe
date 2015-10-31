@@ -6,7 +6,8 @@ public class Tictactoe {
 	
 	private static boolean playing = true;
 	private static int currentPlayer = 1;
-
+	private static boolean gameWon = true ;
+	private static boolean tie = false;
 	
 	public static void main(String[] args) {
 		JFrame Graphics = new Graphics();
@@ -14,7 +15,14 @@ public class Tictactoe {
 
 		while(playing)
 		{
-			
+			if(gameWon)
+			{
+				playing = false;
+			}
+			if(tie)
+			{
+				playing = false;
+			}
 			
 		}
 	}
