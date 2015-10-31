@@ -14,7 +14,7 @@ public class Tictactoetest {
 
 	@Before
 	public void setUp() throws Exception {
-		// maybe not needed
+		Tictactoe tictactoe = new Tictactoe();
 	}
 
 	@After
@@ -25,12 +25,13 @@ public class Tictactoetest {
 	@Test
 	public void testMain() {
 		Tictactoe tictactoe = new Tictactoe();
-		assertNotNull(tictactoe);
+		tictactoe.changePlayer();
+		int testPlayer = tictactoe.getPlayer();
+		assertEquals(2, testPlayer);
 	}
 
-//	@Test
-//	public void testSetToken() {
-//		//fail("Not yet implemented");
-//		assertEquals(true, Tictactoe.setToken());
-//	}
+	@Test
+	public void testChangePlayer() {
+		assertEquals(1, Tictactoe.getPlayer());
+	}
 }
