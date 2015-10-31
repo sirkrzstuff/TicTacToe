@@ -7,6 +7,9 @@ import javax.swing.*;
 
 public class Graphics extends JFrame {
 	
+	/**
+	 * Default constructor that sets up the tictactoe board.
+	 */
 	public Graphics() {
 		
 		JButton[] buttons = new JButton[9];
