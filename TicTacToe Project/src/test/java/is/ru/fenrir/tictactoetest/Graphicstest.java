@@ -8,9 +8,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.java.is.ru.fenrir.tictactoe.Tictactoe;
+import main.java.is.ru.fenrir.tictactoe.Graphics;
 
-public class Tictactoetest {
+public class Graphicstest {
 
 	@Before
 	public void setUp() throws Exception {
@@ -23,14 +23,11 @@ public class Tictactoetest {
 	}
 
 	@Test
-	public void testMain() {
-		Tictactoe tictactoe = new Tictactoe();
-		assertNotNull(tictactoe);
+	public void testGraphics() {
+		//fail("Not yet implemented");
+		// Test constructor
+		JFrame Graphics = new Graphics();
+		assertNotNull(Graphics);
 	}
 
-//	@Test
-//	public void testSetToken() {
-//		//fail("Not yet implemented");
-//		assertEquals(true, Tictactoe.setToken());
-//	}
 }
