@@ -81,4 +81,12 @@ public class Graphics extends JFrame {
 	private void noMoreMoves() {
 		gameover = true;
 	}
+	
+	public boolean boardFull() {
+		for (int i = 0; i < 9; i++) {
+			if (buttons[i].getText() == "")
+				return false;
+		}
+		return true;
+	}
 }

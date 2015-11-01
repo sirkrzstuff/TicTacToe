@@ -72,6 +72,10 @@ public class Tictactoe {
 			gameWon = true;
 			winner = getButton(graphics, 2);
 		
+		// Check for a tie
+		if (graphics.boardFull()) {
+			tie = true;
+		}
 	}
 	
 	private static char getButton(Graphics graphics, int nr) {
