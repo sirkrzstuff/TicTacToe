@@ -52,7 +52,7 @@ public class Tictactoe {
 		
 		
 		// Check for a tie
-		if (graphics.boardFull() && !playing) {
+		if (graphics.boardFull() && graphics.getCounter() == 9) {
 			tie = true;
 		}
 	}

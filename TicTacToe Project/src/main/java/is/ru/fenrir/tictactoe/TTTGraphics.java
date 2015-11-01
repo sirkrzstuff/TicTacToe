@@ -15,6 +15,7 @@ public class TTTGraphics extends JFrame {
 	private JLabel status;
 	private boolean player;
 	private boolean gameover = false;
+	private int counter = 0;
 	
 	/**
 	 * Default constructor that sets up the tictactoe board.
@@ -43,6 +44,7 @@ public class TTTGraphics extends JFrame {
 							((JButton)e.getSource()).setText(player ? "O" : "X");
 							player = !player;
 							status.setText(player ? "O´s turn" : "X´s turn");
+							counter++;
 						}
 					}
 				}
@@ -83,5 +85,9 @@ public class TTTGraphics extends JFrame {
 				return false;
 		}
 		return true;
+	}
+	
+	public int getCounter() {
+		return counter;
 	}
 }
