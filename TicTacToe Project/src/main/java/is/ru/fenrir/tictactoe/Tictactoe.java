@@ -11,7 +11,7 @@ public class Tictactoe {
 	
 	public static void main(String[] args) {
 		
-		Graphics graphics = new Graphics();
+		TTTGraphics graphics = new TTTGraphics();
 		
 		while(playing)
 		{
@@ -20,8 +20,6 @@ public class Tictactoe {
 			if(gameWon)
 			{
 				playing = false;
-				String win = graphics.getStatus();
-				//graphics.changeStatus(win + "won the game");
 				graphics.changeStatus(winner + " won the game");
 			}
 			if(tie)
@@ -33,64 +31,44 @@ public class Tictactoe {
 	}
 
 	
-	private static void checkGameStatus(Graphics graphics) {
+	private static void checkGameStatus(TTTGraphics graphics) {
 		// Check rows for a winner
-		if ((getButton(graphics,0) == getButton(graphics,1)) &&
-		    (getButton(graphics,1) == getButton(graphics,2))) {
-				gameWon = true;
-				winner = getButton(graphics,0);
-		}
-		if ((getButton(graphics,3) == getButton(graphics,4)) &&
-		    (getButton(graphics,4) == getButton(graphics,5))) {
-				gameWon = true;
-				winner = getButton(graphics,3);
-		}
-		if ((getButton(graphics,6) == getButton(graphics,7)) &&
-		    (getButton(graphics,7) == getButton(graphics,8))) {
-				gameWon = true;
-				winner = getButton(graphics,6);
-		}
+		checkButtons(graphics, 0, 1, 2);
+		checkButtons(graphics, 3, 4, 5);
+		checkButtons(graphics, 6, 7, 8);
+		
 			
 		// Check columns for a winner
-		if ((getButton(graphics,0) == getButton(graphics,3)) &&
-			(getButton(graphics,3) == getButton(graphics,6))) {
-				gameWon = true;
-				winner = getButton(graphics,0);
-		}
-		if ((getButton(graphics,1) == getButton(graphics,4)) &&
-			(getButton(graphics,4) == getButton(graphics,7))) {
-				gameWon = true;
-				winner = getButton(graphics,1);
-		}
-		if ((getButton(graphics,2) == getButton(graphics,5)) &&
-			(getButton(graphics,5) == getButton(graphics,8))) {
-				gameWon = true;
-				winner = getButton(graphics,2);
-		}
+		checkButtons(graphics, 0, 3, 6);
+		checkButtons(graphics, 1, 4, 7);
+		checkButtons(graphics, 2, 5, 8);
+		
 		
 		// Check diagonal for a winner
-		if ((getButton(graphics,0) == getButton(graphics,4)) &&
-		(getButton(graphics,4) == getButton(graphics,8))) {
-			gameWon = true;
-			winner = getButton(graphics, 0);
-		}
-		if ((getButton(graphics,2) == getButton(graphics,4)) &&
-		(getButton(graphics,4) == getButton(graphics,6))) {
-			gameWon = true;
-			winner = getButton(graphics, 2);
-		}
+		checkButtons(graphics, 0, 4, 8);
+		checkButtons(graphics, 2, 4, 6);
+		
 		
 		// Check for a tie
 		if (graphics.boardFull()) {
 			tie = true;
 		}
 	}
+
+
+	private static void checkButtons(TTTGraphics graphics, int a, int b, int c) {
+		if ((getButton(graphics,a) == getButton(graphics,b)) &&
+		    (getButton(graphics,b) == getButton(graphics,c))) {
+				gameWon = true;
+				winner = getButton(graphics,a);
+		}
+	}
 	
-	private static char getButton(Graphics graphics, int nr) {
+	private static char getButton(TTTGraphics graphics, int nr) {
 		return graphics.getButtonValue(nr);
 	}
 
-	public static int getPlayer() {
+	public int getPlayer() {
 		return currentPlayer; 
 	}
 }

@@ -5,9 +5,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import org.hamcrest.core.SubstringMatcher;
 
-public class Graphics extends JFrame {
+@SuppressWarnings("serial")
+public class TTTGraphics extends JFrame {
 	public static final boolean PLAYER_X = false;
 	public static final boolean PLAYER_O = true;
 	
@@ -19,10 +19,9 @@ public class Graphics extends JFrame {
 	/**
 	 * Default constructor that sets up the tictactoe board.
 	 */
-	public Graphics() {
+	public TTTGraphics() {
 	
 		player = PLAYER_X;
-		//JButton[] buttons = new JButton[9];
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(3, 3));
 		status = new JLabel("X´s turn");
