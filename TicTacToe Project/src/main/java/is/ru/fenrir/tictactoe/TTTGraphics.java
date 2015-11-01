@@ -18,6 +18,27 @@ public class TTTGraphics extends JFrame {
 	private int counter = 0;
 	
 	/**
+	 * Getters / Setters
+	 */
+	public JButton getJButton(int value) {
+		return buttons[value];
+	}
+	
+	public char getButtonValue(int buttonId) {
+		if (buttons[buttonId].getText() == "")
+			return Integer.toString(buttonId).toCharArray()[0];
+		return buttons[buttonId].getText().toCharArray()[0];
+	}
+	
+	public void setButtonValue(int buttonId, String sign) {
+		buttons[buttonId].setText(sign);
+	}
+	
+	public boolean getGameover() {
+		return gameover;
+	}
+	
+	/**
 	 * Default constructor that sets up the tictactoe board.
 	 */
 	public TTTGraphics() {
@@ -64,16 +85,9 @@ public class TTTGraphics extends JFrame {
 		this.setTitle("TicTacToe");
 	}
 	
-	public char getButtonValue(int buttonId) {
 
-		if (buttons[buttonId].getText() == "")
-			return Integer.toString(buttonId).toCharArray()[0];
-		return buttons[buttonId].getText().toCharArray()[0];
-	}
 	
-	public void setButtonValue(int buttonId, String sign) {
-		buttons[buttonId].setText(sign);
-	}
+	
 	
 	public void changeStatus(String newStatus) {
 		status.setText(newStatus);

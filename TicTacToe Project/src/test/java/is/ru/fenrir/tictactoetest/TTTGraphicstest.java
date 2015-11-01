@@ -26,19 +26,53 @@ public class TTTGraphicstest {
 	public void testGraphics() {
 		//fail("Not yet implemented");
 		// Test constructor
-		JFrame Graphics = new TTTGraphics();
-		assertNotNull(Graphics);
+		TTTGraphics graphics = new TTTGraphics();
+		assertNotNull(graphics);
 	}
 	
 	@Test 
-	public void testCounter() {
-		TTTGraphics t = new TTTGraphics();
-		t.setButtonValue(0, "X");
-		t.setButtonValue(3, "O");
-		t.setButtonValue(1, "X");
-		t.setButtonValue(4, "O");
-		t.setButtonValue(2, "X");
-		assertEquals(5, t.getCounter());
+	public void testButtonClick() {
+		TTTGraphics graphics = new TTTGraphics();
+		graphics.getJButton(0).doClick();
+		assertEquals("X".toCharArray()[0], graphics.getButtonValue(0));
+	}
+	
+	@Test
+	public void testGameOne() {
+		TTTGraphics graphics = new TTTGraphics();
+		// Setup
+		graphics.getJButton(0).doClick();
+		graphics.getJButton(1).doClick();
+		graphics.getJButton(3).doClick();
+		graphics.getJButton(2).doClick();
+		graphics.getJButton(6).doClick();
+		// Check
+		boolean checkme = false;
+		if ((graphics.getButtonValue(0) == 'X') && (graphics.getButtonValue(3) == 'X') && (graphics.getButtonValue(6) == 'X'))
+			checkme = true;
+		// Assert
+		assertTrue(checkme);
+	}
+	
+	@Test
+	public void testGameTie() {
+		TTTGraphics graphics = new TTTGraphics();
+		// Setup
+		graphics.getJButton(0).doClick();
+		graphics.getJButton(3).doClick();
+		graphics.getJButton(1).doClick();
+		graphics.getJButton(4).doClick();
+		graphics.getJButton(5).doClick();
+		graphics.getJButton(2).doClick();
+		graphics.getJButton(6).doClick();
+		graphics.getJButton(7).doClick();
+		graphics.getJButton(8).doClick();
+		// Check
+		boolean checkme = false;
+		if (graphics.boardFull())
+			checkme = true;
+		// Assert
+		assertTrue(checkme);
 	}
 
 }

@@ -35,7 +35,8 @@ public class Tictactoe {
 	
 	private static void checkGameStatus(TTTGraphics graphics) {
 		// Check rows for a winner
-		checkButtons(graphics, 0, 1, 2);
+		
+			checkButtons(graphics, 0, 1, 2);
 		checkButtons(graphics, 3, 4, 5);
 		checkButtons(graphics, 6, 7, 8);
 		
@@ -52,17 +53,19 @@ public class Tictactoe {
 		
 		
 		// Check for a tie
-		if (graphics.boardFull() && graphics.getCounter() == 9) {
+		if (winner == ' ' && graphics.boardFull()) {
 			tie = true;
 		}
 	}
 
 
 	private static void checkButtons(TTTGraphics graphics, int a, int b, int c) {
-		if ((getButton(graphics,a) == getButton(graphics,b)) &&
-		    (getButton(graphics,b) == getButton(graphics,c))) {
-				gameWon = true;
-				winner = getButton(graphics,a);
+		if (winner == ' ') {
+			if ((getButton(graphics,a) == getButton(graphics,b)) &&
+			    (getButton(graphics,b) == getButton(graphics,c))) {
+					gameWon = true;
+					winner = getButton(graphics,a);
+			}
 		}
 	}
 	
