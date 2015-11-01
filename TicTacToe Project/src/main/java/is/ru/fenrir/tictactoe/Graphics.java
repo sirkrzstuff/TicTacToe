@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import org.hamcrest.core.SubstringMatcher;
+
 public class Graphics extends JFrame {
 	public static final boolean PLAYER_X = false;
 	public static final boolean PLAYER_O = true;
@@ -32,9 +34,16 @@ public class Graphics extends JFrame {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					if (e.getSource() instanceof JButton) {
-						((JButton)e.getSource()).setText(player ? "O" : "X");
-						player = !player;
-						status.setText(player ? "O큦 turn" : "X큦 turn"); 
+						if (( ((JButton)e.getSource()).getText() == "X") || ( ((JButton)e.getSource()).getText() == "O"))
+						{
+							
+						}
+						else
+						{
+							((JButton)e.getSource()).setText(player ? "O" : "X");
+							player = !player;
+							status.setText(player ? "O큦 turn" : "X큦 turn");
+						}
 					}
 				}
 			});
@@ -62,5 +71,8 @@ public class Graphics extends JFrame {
 	
 	public void changeStatus(String newStatus) {
 		status.setText(newStatus);
+	}
+	public String getStatus() {
+		return status.getText().substring(0, 2);
 	}
 }

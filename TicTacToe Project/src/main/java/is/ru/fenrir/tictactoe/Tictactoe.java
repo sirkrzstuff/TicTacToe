@@ -1,6 +1,5 @@
 package main.java.is.ru.fenrir.tictactoe;
 
-import javax.swing.JFrame;
 
 public class Tictactoe {
 	
@@ -22,7 +21,8 @@ public class Tictactoe {
 			if(gameWon)
 			{
 				playing = false;
-				graphics.changeStatus(winner + " has won!");
+				String win = graphics.getStatus();
+				graphics.changeStatus(win + "won the game");
 			}
 			if(tie)
 			{
@@ -71,6 +71,7 @@ public class Tictactoe {
 		(getButton(graphics,4) == getButton(graphics,6)))
 			gameWon = true;
 			winner = getButton(graphics, 2);
+		
 	}
 	
 	private static char getButton(Graphics graphics, int nr) {
