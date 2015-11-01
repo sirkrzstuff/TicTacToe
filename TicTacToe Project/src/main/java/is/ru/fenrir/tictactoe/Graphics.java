@@ -22,6 +22,7 @@ public class Graphics extends JFrame {
 		//JButton[] buttons = new JButton[9];
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(3, 3));
+		status = new JLabel("X큦 turn");
 		
 		for(int i = 0; i < 9; i++)
 		{
@@ -33,6 +34,7 @@ public class Graphics extends JFrame {
 					if (e.getSource() instanceof JButton) {
 						((JButton)e.getSource()).setText(player ? "O" : "X");
 						player = !player;
+						status.setText(player ? "O큦 turn" : "X큦 turn"); 
 					}
 				}
 			});
@@ -40,7 +42,7 @@ public class Graphics extends JFrame {
 		}
 		
 		
-		status = new JLabel("X큦 turn");
+		//status = new JLabel("X큦 turn");
 		add(panel, BorderLayout.CENTER);
 		add(status, BorderLayout.SOUTH);
 		//Settings
