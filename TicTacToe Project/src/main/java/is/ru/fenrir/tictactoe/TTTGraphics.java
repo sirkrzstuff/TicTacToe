@@ -72,13 +72,9 @@ public class TTTGraphics extends JFrame {
 	public void changeStatus(String newStatus) {
 		status.setText(newStatus);
 	}
-	public String getStatus() {
-		noMoreMoves();
-		return status.getText().substring(0, 2);
-	}
 	
-	private void noMoreMoves() {
-		gameover = true;
+	public void setGameOver(boolean value) {
+		gameover = value;
 	}
 	
 	public boolean boardFull() {

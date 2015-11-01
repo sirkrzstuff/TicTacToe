@@ -21,11 +21,13 @@ public class Tictactoe {
 			{
 				playing = false;
 				graphics.changeStatus(winner + " won the game");
+				graphics.setGameOver(true);
 			}
 			if(tie)
 			{
 				playing = false;
 				graphics.changeStatus("It's a tie");
+				graphics.setGameOver(true);
 			}
 		}
 	}
@@ -50,7 +52,7 @@ public class Tictactoe {
 		
 		
 		// Check for a tie
-		if (graphics.boardFull() && !gameWon) {
+		if (graphics.boardFull() && !playing) {
 			tie = true;
 		}
 	}
