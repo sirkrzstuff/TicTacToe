@@ -6,14 +6,19 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Graphics extends JFrame {
+	public static final boolean PLAYER_X = false;
+	public static final boolean PLAYER_O = true;
 	
 	private JButton[] buttons = new JButton[9];
 	private JLabel status;
+	private boolean player;
+	
 	/**
 	 * Default constructor that sets up the tictactoe board.
 	 */
 	public Graphics() {
-		
+	
+		player = PLAYER_X;
 		//JButton[] buttons = new JButton[9];
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(3, 3));
@@ -22,6 +27,15 @@ public class Graphics extends JFrame {
 		{
 			buttons[i] = new JButton("");
 			buttons[i].setFont(new Font("Arial", Font.BOLD, 80));
+			buttons[i].addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if (e.getSource() instanceof JButton) {
+						((JButton)e.getSource()).setText(player ? "O" : "X");
+						player = !player;
+					}
+				}
+			});
 			panel.add(buttons[i]);
 		}
 		
