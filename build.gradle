@@ -1,0 +1,19 @@
+repositories {
+  mavenCentral()
+}
+
+apply plugin: "java"
+
+dependencies {
+  testCompile group: 'junit', name: 'junit-dep', version: '4.10'
+}
+
+sourceSets {
+  main.java.srcDir "TicTacToe Project/src/main/java"
+  test.java.srcDir "TicTacToe Project/src/test/java"
+}
+
+jar {
+  from configurations.compile.collect { zipTree it}
+  manifest.attributes "Main-Class": "main.java.is.ru.fenrir.tictactoe.Tictactoe"
+}
