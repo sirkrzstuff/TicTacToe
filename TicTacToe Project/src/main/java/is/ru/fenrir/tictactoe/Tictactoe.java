@@ -67,7 +67,6 @@ public class Tictactoe {
 		}
 	}
 
-
 	private static void changeRowColor(TTTGraphics graphics, int a, int b, int c, Color color) {
 		graphics.changeButtonFontColor(a, color);
 		graphics.changeButtonFontColor(b, color);
