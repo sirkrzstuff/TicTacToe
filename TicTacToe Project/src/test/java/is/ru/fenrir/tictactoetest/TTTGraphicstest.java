@@ -29,5 +29,16 @@ public class TTTGraphicstest {
 		JFrame Graphics = new TTTGraphics();
 		assertNotNull(Graphics);
 	}
+	
+	@Test 
+	public void testCounter() {
+		TTTGraphics t = new TTTGraphics();
+		t.setButtonValue(0, "X");
+		t.setButtonValue(3, "O");
+		t.setButtonValue(1, "X");
+		t.setButtonValue(4, "O");
+		t.setButtonValue(2, "X");
+		assertEquals(5, t.getCounter());
+	}
 
 }

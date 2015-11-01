@@ -71,6 +71,10 @@ public class TTTGraphics extends JFrame {
 		return buttons[buttonId].getText().toCharArray()[0];
 	}
 	
+	public void setButtonValue(int buttonId, String sign) {
+		buttons[buttonId].setText(sign);
+	}
+	
 	public void changeStatus(String newStatus) {
 		status.setText(newStatus);
 	}
