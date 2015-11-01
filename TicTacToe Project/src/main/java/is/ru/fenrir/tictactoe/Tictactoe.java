@@ -50,7 +50,7 @@ public class Tictactoe {
 		
 		
 		// Check for a tie
-		if (graphics.boardFull()) {
+		if (graphics.boardFull() && !gameWon) {
 			tie = true;
 		}
 	}
