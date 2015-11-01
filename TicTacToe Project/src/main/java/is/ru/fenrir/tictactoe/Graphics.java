@@ -14,6 +14,7 @@ public class Graphics extends JFrame {
 	private JButton[] buttons = new JButton[9];
 	private JLabel status;
 	private boolean player;
+	private boolean gameover = false;
 	
 	/**
 	 * Default constructor that sets up the tictactoe board.
@@ -34,7 +35,7 @@ public class Graphics extends JFrame {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					if (e.getSource() instanceof JButton) {
-						if (( ((JButton)e.getSource()).getText() == "X") || ( ((JButton)e.getSource()).getText() == "O"))
+						if (( ((JButton)e.getSource()).getText() == "X") || ( ((JButton)e.getSource()).getText() == "O") || (gameover))
 						{
 							
 						}
@@ -73,6 +74,11 @@ public class Graphics extends JFrame {
 		status.setText(newStatus);
 	}
 	public String getStatus() {
+		noMoreMoves();
 		return status.getText().substring(0, 2);
+	}
+	
+	private void noMoreMoves() {
+		gameover = true;
 	}
 }

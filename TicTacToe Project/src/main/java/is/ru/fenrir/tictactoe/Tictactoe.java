@@ -78,13 +78,6 @@ public class Tictactoe {
 		return graphics.getButtonValue(nr);
 	}
 
-	public void changePlayer() {
-		if (this.currentPlayer == 1)
-			this.currentPlayer = 2;
-		else
-			this.currentPlayer = 1;
-	}
-
 	public static int getPlayer() {
 		return currentPlayer; 
 	}
