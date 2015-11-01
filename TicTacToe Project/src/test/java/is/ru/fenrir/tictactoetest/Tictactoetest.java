@@ -20,15 +20,6 @@ public class Tictactoetest {
 		assertNotNull(tictactoe);
 	}
 
-//	@Test
-//	public void testChangePlayer() {
-//		Tictactoe tictactoe = new Tictactoe();
-//		int before = tictactoe.getPlayer();
-//		tictactoe.changePlayer();
-//		int after = tictactoe.getPlayer();
-//		assertNotEquals(before, after);
-//	}
-
 	@Test
 	public void testGetPlayer() {
 		Tictactoe tictactoe = new Tictactoe();

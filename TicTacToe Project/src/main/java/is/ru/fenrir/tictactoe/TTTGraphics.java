@@ -108,4 +108,8 @@ public class TTTGraphics extends JFrame {
 	public int getCounter() {
 		return counter;
 	}
+	
+	public void changeButtonFontColor(int buttonId, Color color) {
+		buttons[buttonId].setForeground(color);
+	}
 }

@@ -2,8 +2,6 @@ package test.java.is.ru.fenrir.tictactoetest;
 
 import static org.junit.Assert.*;
 
-import javax.swing.JFrame;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -55,7 +53,7 @@ public class TTTGraphicstest {
 	}
 	
 	@Test
-	public void testGameTie() {
+	public void testGameboardFull() {
 		TTTGraphics graphics = new TTTGraphics();
 		// Setup
 		graphics.getJButton(0).doClick();
@@ -68,11 +66,6 @@ public class TTTGraphicstest {
 		graphics.getJButton(7).doClick();
 		graphics.getJButton(8).doClick();
 		// Check
-		boolean checkme = false;
-		if (graphics.boardFull())
-			checkme = true;
-		// Assert
-		assertTrue(checkme);
+		assertTrue(graphics.boardFull());
 	}
-
 }
