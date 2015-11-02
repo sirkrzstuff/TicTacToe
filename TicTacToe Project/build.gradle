@@ -4,9 +4,14 @@ repositories {
 
 apply plugin: "java"
 apply plugin: "jacoco"
+apply plugin: "pmd"
 
 dependencies {
   testCompile group: 'junit', name: 'junit-dep', version: '4.10'
+}
+
+pmd { 
+	ignoreFailures = true 
 }
 
 jacocoTestReport {
