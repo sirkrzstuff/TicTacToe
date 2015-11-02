@@ -22,7 +22,7 @@ jacocoTestReport {
       }
 }
 test.finalizedBy(jacocoTestReport)
-
+ 
 jacocoTestReport {
     reports {
         xml.enabled false
