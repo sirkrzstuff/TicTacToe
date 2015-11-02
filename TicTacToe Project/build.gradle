@@ -3,10 +3,28 @@ repositories {
 }
 
 apply plugin: "java"
+apply plugin: "jacoco"
 
 dependencies {
   testCompile group: 'junit', name: 'junit-dep', version: '4.10'
 }
+
+jacocoTestReport {
+      reports {
+	    xml.enabled false
+	    csv.enabled false
+        html.destination "${buildDir}/reports/jacoco"
+      }
+}
+test.finalizedBy(jacocoTestReport)
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+    }
+}
+
 
 sourceSets {
   main.java.srcDir "src/main/java"
