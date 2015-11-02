@@ -56,7 +56,7 @@ public class TTTGraphics extends JFrame {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					if (e.getSource() instanceof JButton) {
-						if (( ((JButton)e.getSource()).getText() == "X") || ( ((JButton)e.getSource()).getText() == "O") || (gameover))
+						if (((JButton)e.getSource()).getText() == "X" ||  ((JButton)e.getSource()).getText() == "O" || (gameover))
 						{
 							
 						}

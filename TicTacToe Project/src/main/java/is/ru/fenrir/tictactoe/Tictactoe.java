@@ -57,15 +57,13 @@ public class Tictactoe {
 
 
 	private static void checkButtons(TTTGraphics graphics, int a, int b, int c) {
-		if (winner == ' ') {
-			if ((getButton(graphics,a) == getButton(graphics,b)) &&
-			    (getButton(graphics,b) == getButton(graphics,c))) {
-					gameWon = true;
-					changeRowColor(graphics, a, b, c, Color.RED);
-					winner = getButton(graphics,a);
-			}
+	if (winner == ' ' && getButton(graphics,a) == getButton(graphics,b) && getButton(graphics,b) == getButton(graphics,c)) {
+			gameWon = true;
+			changeRowColor(graphics, a, b, c, Color.RED);
+			winner = getButton(graphics,a);
 		}
 	}
+	
 
 	private static void changeRowColor(TTTGraphics graphics, int a, int b, int c, Color color) {
 		graphics.changeButtonFontColor(a, color);
