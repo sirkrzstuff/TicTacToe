@@ -3,6 +3,28 @@ repositories {
 }
 
 apply plugin: "java"
+apply plugin: "jacoco"
+apply plugin: "pmd"
+
+pmd { 
+	ignoreFailures = true 
+}
+
+jacocoTestReport {
+      reports {
+	    xml.enabled false
+	    csv.enabled false
+        html.destination "${buildDir}/reports/jacoco"
+      }
+}
+test.finalizedBy(jacocoTestReport)
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+    }
+}
 
 dependencies {
   testCompile group: 'junit', name: 'junit-dep', version: '4.10'
