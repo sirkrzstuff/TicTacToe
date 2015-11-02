@@ -83,9 +83,6 @@ public class TTTGraphics extends JFrame {
 		this.setTitle("TicTacToe");
 	}
 	
-
-	
-	
 	
 	public void changeStatus(String newStatus) {
 		status.setText(newStatus);
