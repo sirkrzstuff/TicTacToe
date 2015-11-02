@@ -46,7 +46,7 @@ public class TTTGraphics extends JFrame {
 		player = PLAYER_X;
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(3, 3));
-		status = new JLabel("X큦 turn");
+		status = new JLabel("X's turn");
 		
 		for(int i = 0; i < 9; i++)
 		{
@@ -64,7 +64,7 @@ public class TTTGraphics extends JFrame {
 						{
 							((JButton)e.getSource()).setText(player ? "O" : "X");
 							player = !player;
-							status.setText(player ? "O큦 turn" : "X큦 turn");
+							status.setText(player ? "O's turn" : "X's turn");
 							counter++;
 						}
 					}
@@ -73,8 +73,6 @@ public class TTTGraphics extends JFrame {
 			panel.add(buttons[i]);
 		}
 		
-		
-		//status = new JLabel("X큦 turn");
 		add(panel, BorderLayout.CENTER);
 		add(status, BorderLayout.SOUTH);
 		//Settings
@@ -84,9 +82,6 @@ public class TTTGraphics extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setTitle("TicTacToe");
 	}
-	
-
-	
 	
 	
 	public void changeStatus(String newStatus) {
