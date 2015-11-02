@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "java.is.ru.fenrir.tictactoe"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.5'
+
+    testCompile 'junit:junit:4.11'
+
+    compile 'com.sparkjava:spark-core:2.3'
+}
+
+jar {
+    manifest {
+        attributes("Main-Class" : "java.is.ru.fenrir.tictactoe")
+    }
+}
