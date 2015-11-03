@@ -1,13 +1,52 @@
-repositories {
-  mavenCentral()
-}
-
-apply plugin: "java"
+// Apply the java plugin to add support for Java
+apply plugin: 'java'
+apply plugin: 'application'
 apply plugin: "jacoco"
 apply plugin: "pmd"
 
+mainClassName = "is.ru.fenrir.tictactoe.Tictactoe"
+
+repositories {
+  mavenCentral()
+  jcenter()
+}
+
+dependencies {
+  testCompile group: 'junit', name: 'junit-dep', version: '4.10'
+  compile 'org.slf4j:slf4j-api:1.7.12'
+  testCompile 'junit:junit:4.12'
+}
+
+jar {
+  from configurations.compile.collect { zipTree it}
+  manifest.attributes "Main-Class": "main.java.is.ru.fenrir.tictactoe.Tictactoe"
+}
+
+run {
+    standardInput = System.in
+}
+
 pmd { 
 	ignoreFailures = true 
+}
+
+jacoco {
+  toolVersion = "0.7.1.201405082137"
+  reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacoco {
+   applyTo run
+}
+
+task applicationCodeCoverageReport(type:JacocoReport) {
+   executionData run
+   sourceSets sourceSets.main
+}
+
+sourceSets {
+  main.java.srcDir "TicTacToe Project/src/main/java"
+  test.java.srcDir "TicTacToe Project/src/test/java"
 }
 
 jacocoTestReport {
@@ -16,29 +55,11 @@ jacocoTestReport {
 	    csv.enabled false
         html.destination "${buildDir}/reports/jacoco"
       }
-}
-test.finalizedBy(jacocoTestReport)
-
-jacocoTestReport {
-    reports {
-        xml.enabled false
-        csv.enabled false
-    }
+	  group = "Reporting"
+	  description = "Generate Jacoco coverage reports after running tests."
+	  additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
 }
 
-dependencies {
-  testCompile group: 'junit', name: 'junit-dep', version: '4.10'
-}
-
-sourceSets {
-  main.java.srcDir "TicTacToe Project/src/main/java"
-  test.java.srcDir "TicTacToe Project/src/test/java"
-}
-
-jar {
-  from configurations.compile.collect { zipTree it}
-  manifest.attributes "Main-Class": "main.java.is.ru.fenrir.tictactoe.Tictactoe"
-}
 
 test {
     testLogging {
@@ -57,3 +78,14 @@ test {
         info.events = ["failed", "skipped"]
     }
 }
+
+test {
+    jacoco {
+       append = false
+       destinationFile = file("$buildDir/jacoco/jacocotest.exec")
+       classDumpFile = file("$buildDir/jacoco/classpathdumps")
+    }
+}
+
+
+
