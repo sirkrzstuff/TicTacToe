@@ -19,8 +19,7 @@ dependencies {
 
 jar {
   from configurations.compile.collect { zipTree it}
-  manifest.attributes "Main-Class": "main.java.is.ru.fenrir.tictactoe.Tictactoe"
-  manifest.attributes "Class-Path": "main.java.is.ru.fenrir.tictactoe.TTTGraphics.jar"
+  manifest.attributes "Main-Class": "main.java.is.ru.fenrir.tictactoe.TTTGraphics"
 }
 
 run {
