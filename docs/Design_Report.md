@@ -1,6 +1,17 @@
 Design Report
 =======
 
+Fenrir members
+-----------
+* Erla Björg Jensdóttir
+* Eyþór Gunnar Jónsson
+* Grímur Garpsson
+* Guðjón Már Halldórsson
+* Jón Björn Njálsson
+* Kristmundur Kristjánsson
+* Svanhildur Jóna Erlingsdóttir
+
+
 Vision
 -----------
 
@@ -17,9 +28,3 @@ These criteria are:
 * The project should have documentation that explains how to work on this project, the vision statement and how to run the program.
 * The Program should ideally be designed in a loosely coupled manner and be tested frequently
 
-Progress so far
------------
-
-We have a google docs file for this.
-
-[link] https://docs.google.com/document/d/1T1PmxNaLvlBP7_XPJ8I4CxFFHQFFH3UwE0Q_0orQy1w/edit
