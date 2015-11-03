@@ -17,7 +17,7 @@ Vision
 
 This project inolves the team coding a simple java game of Tic Tac Toe. However the main goal of this is actually to help the team come to grips with modern coding work methods. These methods include such things as: Push/Pull source control, enough documentation and appropriate testing.
 
-Sucess Criteria
+Success Criteria
 -----------
 
 These criteria are:
