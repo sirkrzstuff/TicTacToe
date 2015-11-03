@@ -4,11 +4,31 @@ apply plugin: 'application'
 apply plugin: "jacoco"
 apply plugin: "pmd"
 
-mainClassName = "is.ru.fenrir.tictactoe.Tictactoe"
+defaultTasks 'clean', 'build'
 
 repositories {
   mavenCentral()
   jcenter()
+}
+
+
+jar {
+   from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+        configurations.runtime.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+	manifest {
+        attributes 'Implementation-Title': 'ndeploy',
+            'Implementation-Version': '0.1.0',
+            'Built-By': System.getProperty('user.name'),
+            'Built-Date': new Date(),
+            'Built-JDK': System.getProperty('java.version'),
+            'Main-Class': 'main.java.is.ru.fenrir.tictactoe.Tictactoe'
+    }
 }
 
 dependencies {
@@ -17,10 +37,10 @@ dependencies {
   testCompile 'junit:junit:4.12'
 }
 
-jar {
-  from configurations.compile.collect { zipTree it}
-  manifest.attributes "Main-Class": "main.java.is.ru.fenrir.tictactoe.Tictactoe"
-  manifest.attributes "Class-Path": "main.java.is.ru.fenrir.tictactoe.TTTGraphics.jar"
+buildscript {
+    dependencies {
+        classpath fileTree(dir: '../../build/libs', include: '*.jar', excludes: ['*javadoc.jar', '*sources.jar'])
+    }
 }
 
 run {
